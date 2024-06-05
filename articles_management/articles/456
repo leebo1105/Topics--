@@ -1,0 +1,52 @@
+ const photoTpl = (filename, index) => `
+    <div class="my-card">
+      <img src="../uploads/${filename}" alt="" class="cover-img">
+      <span class="image-remove" onclick="removeImage(<?php echo $row['a_id']; ?>, '${filename}')"><i class="fa-solid fa-circle-xmark"></i></span>
+    </div>
+    `
+    const removeImage = (a_id, filename) => {
+        if (confirm("確定要刪除這張圖片嗎？")) {
+            fetch('delete-image.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        a_id: a_id,
+                        filename: filename
+
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // 成功刪除前端圖片後，再執行刪除後端圖片的請求
+                        fetch('delete-photos.php', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/x-www-form-urlencoded'
+                                },
+                                body: 'filename=' + encodeURIComponent(filename)
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.success) {
+                                    // 在這裡處理後續的操作，例如更新 UI
+                                    document.querySelector('.my-card[src="../uploads/' + filename + '"]').remove(); // 刪除前端圖片
+                                    console.log('圖片從前端和資料庫中成功刪除');
+                                } else {
+                                    console.error('刪除圖片失敗');
+                                }
+                            })
+                            .catch(error => {
+                                console.error('刪除圖片時出現錯誤：', error);
+                            });
+                    } else {
+                        console.error('刪除圖片失敗');
+                    }
+                })
+                .catch(error => {
+                    console.error('刪除圖片時出現錯誤：', error);
+                });
+        }
+    };

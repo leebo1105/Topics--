@@ -1,0 +1,243 @@
+/* 購物車樣式 */
+.cart-sidebar {
+  position: fixed;
+  top: 150px; /* 50px 是您想要的向下移动的距离 */
+  right: -400px; /* 隱藏在右邊 */
+  width: 250px;
+  height: 80%;
+  color: rgba(255, 255, 255, 0.8); /* 透明化 */
+  background-color: rgba(0, 0, 0, 0.7); /* 70% 不透明度的黑色背景 */
+  transition: right 0.3s ease; /* 加入過渡效果 */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 999; /* 将 z-index 设置为比导航栏小的值，比如 999 */
+  border-radius: 10px;
+}
+
+
+.cart-sidebar.show {
+  right: 0; /* 從右側滑入 */
+}
+
+.checkoutBtn {
+      position: fixed;
+      bottom: 90px; /* 距离底部的距离 */
+      z-index: 9999; /* 确保按钮位于其他内容的上方 */
+      width: 260px; /* 设置按钮的宽度 */
+      padding: 10px 20px; /* 设置按钮的内边距 */
+      font-size: 18px; /* 设置按钮的字体大小 */
+      border-radius: 5px; /* 设置按钮的圆角 */
+      background-color: #007bff; /* 设置按钮的背景颜色 */
+      color: #ffffff; /* 设置按钮的文字颜色 */
+      border: none; /* 移除按钮的边框 */
+      transition: all 0.3s ease; /* 添加过渡效果 */
+      
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  .checkoutBtn:hover {
+      background-color: #0056b3; /* 鼠标悬停时的背景颜色 */
+      color: #ffffff; /* 鼠标悬停时的文字颜色 */
+  }
+
+  .cart {
+    position: fixed;
+    top: 90px; /* 根據需要調整 */
+    right: 20px; /* 向左移動一些 */
+    z-index: 1000; /* 確保它在其他元素之上 */
+    background-color: #f8f9fa; /* 美化背景顏色 */
+    border-radius: 50%; /* 圓形背景 */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* 增強陰影效果 */
+    padding: 15px; /* 增加內邊距 */
+    transition: background-color 0.3s ease; /* 添加背景顏色過渡效果 */
+}
+  .cart-items {
+    display: flex;
+    flex-direction: column-reverse; /* 从底部向上排列 */
+}
+
+.cart-item {
+    font-size: 14px; /* 设置字体大小 */
+    margin-bottom: 10px; /* 设置项之间的间距 */
+}
+
+  .item-price {
+      margin-left: auto; /* 将价格向右对齐 */
+  }
+  /* 加刪清除 */
+  .custom-btn {
+  background-color: lightblue; /* 设置背景色 */
+  padding: 5px 10px; /* 调整按钮内边距 */
+  font-size: 13px; /* 调整按钮文字大小 */
+  border: none; /* 去除按钮边框 */
+  border-radius: 5px; /* 圆角边框 */
+  cursor: pointer; /* 鼠标指针样式 */
+}
+.remove {
+background-color: rgb(226, 20, 5); /* 设置背景色 */
+  padding: 5px 10px; /* 调整按钮内边距 */
+  font-size: 13px; /* 调整按钮文字大小 */
+  border: none; /* 去除按钮边框 */
+  border-radius: 5px; /* 圆角边框 */
+  cursor: pointer; /* 鼠标指针样式 */
+  /* width: 10px; */
+}
+
+
+
+/* 產品導覽 */
+/* 确保产品列表不受导航栏影响，增加上方内边距 */
+.product-list {
+  margin-top: 8%;
+}
+
+/* 设置产品列表为水平排列 */
+.product-list ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.product-list li {
+  margin: 0 10px;
+  position: relative;
+}
+
+/* 添加斜线分隔符 */
+.product-list li:not(:last-child)::after {
+  content: "/";
+  position: absolute;
+  right: -10px;
+  top: 0;
+  color: #000; /* 分隔符颜色 */
+  font-size: 18px; /* 根据需要调整字体大小 */
+  line-height: 1;
+}
+
+.product-list a {
+  text-decoration: none;
+  color: #000; /* 链接颜色 */
+  font-size: 16px; /* 根据需要调整字体大小 */
+}
+
+/* 调整链接悬停效果 */
+.product-list a:hover {
+  color: #007BFF; /* 悬停时链接颜色 */
+}
+  /* 合并的样式 */
+  .product-detail {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 30px;
+    }
+    .product-image {
+      flex: 1;
+      padding: 20px;
+    }
+    .product-info {
+      flex: 2;
+      padding: 20px;
+    }
+    .product-info h5 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+    .product-info p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+    .product-info .btn-group {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    .product-info .btn-group button {
+      margin-right: 10px;
+    }
+
+    .cart-sidebar.show {
+      transform: translateX(0);
+    }
+    .cart-items {
+      margin-bottom: 20px;
+    }
+    .cart-items ul {
+      list-style: none;
+      padding: 0;
+    }
+    .cart-items li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #faecec;
+    }
+    .cart-total {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+
+
+/* 購物車------ */
+.cart-icon {
+  font-size: 30px; /* 調整大小 */
+  cursor: pointer;
+  color: #007bff; /* 圖標顏色 */
+  transition: color 0.3s ease, transform 0.3s ease; /* 添加過渡效果 */
+  position: relative; /* 用於定位數字徽章 */
+}
+
+.cart-item {
+  position: absolute;
+  top: -10px; /* 調整位置到右上角 */
+  right: -10px; /* 調整位置到右上角 */
+  background-color: #ff6347; /* 數字徽章背景顏色 */
+  color: white; /* 數字顏色 */
+  width: 25px; /* 數字徽章寬度 */
+  height: 25px; /* 數字徽章高度 */
+  border-radius: 50%; /* 圓形數字徽章 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px; /* 數字字體大小 */
+  font-weight: bold; /* 數字字體粗細 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 陰影效果 */
+  animation: bounce 1s infinite; /* 動畫效果 */
+}
+
+@keyframes bounce {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-5px);
+  }
+}
+
+.cart-icon:hover {
+  color: #0056b3; /* 懸停時的顏色 */
+  transform: scale(1.1); /* 懸停時放大效果 */
+  animation: shake 0.5s; /* 懸停時搖晃效果 */
+}
+
+.cart-icon:active {
+  animation: flash 0.3s; /* 點擊時閃爍效果 */
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+}
+
+@keyframes flash {
+  0%, 100% { background-color: #f8f9fa; }
+  50% { background-color: #007bff; }
+}
+
+
+  

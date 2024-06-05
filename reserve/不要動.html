@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap css CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+      integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- bootstrap js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- bootstrap-material-design css CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/4.0.2/bootstrap-material-design.css"
+      integrity="sha512-2KRz1UY/OYx7yBlulfAB4FqeSUMzlkvxCX6IalaJfhrihGo8lbY+AOm5isINAIcGV/sCqi7Pic6Mq6pznnP4mA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- bootstrap-material-design js CDN -->
+
+    <!-- font awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>Document</title>
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+
+      .outermost-layer {
+        margin-top: 10px;
+        display: flex;
+      }
+
+      .middle-layer {
+        display: none;
+        width: 60%;
+        margin: auto;
+      }
+
+      .inner-layer {
+        display: none;
+        margin-top: 10px;
+        margin: auto;
+      }
+
+      .tables-chairs {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
+
+      .tables-chairs ul {
+        padding: 0;
+        list-style: none;
+      }
+
+      .tables-chairs li {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 5px;
+        border-radius: 50%;
+        background-color: rgb(79, 199, 79);
+      }
+      .tables-chairs li:hover {
+        background-color: #7b8b6f;
+        transition: 0.3s;
+        cursor: pointer;
+      }
+      /* 以下為預約 */
+
+      :root {
+        --green: #7eddc5;
+        --grey: #7b8b6f;
+        --orange: #fea88d;
+        --color1: #888;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      @media (max-width: 450px) {
+        body {
+          background: #7b8b6f;
+          overflow: scroll;
+        }
+      }
+
+      .diamond {
+        width: 550px;
+        background: var(--grey);
+        border-radius: 8px;
+        box-shadow: 0px 0px 20px 3px rgba(17, 17, 17, 0.2);
+        transition: all 0.5s ease-in-out;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        padding-block: 20px;
+      }
+
+      @media (max-width: 450px) {
+        .diamond {
+          display: none;
+        }
+      }
+
+      .mob {
+        display: none;
+      }
+
+      @media (max-width: 450px) {
+        .mob {
+          display: inline-block;
+        }
+      }
+
+      .form-wrap {
+        text-align: center;
+        font-size: 1em;
+        width: 350px;
+      }
+
+      @media (max-width: 450px) {
+        .form-wrap {
+          width: 80%;
+        }
+      }
+
+      .return-btn {
+        width: 50px;
+        height: 50px;
+        margin-top: 10px;
+        border-radius: 50%;
+        background-color: #153a63;
+        color: white;
+        font-size: 16px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+      }
+      form {
+        margin-bottom: 5px;
+      }
+
+      input {
+        padding: 15px 10px;
+        border: none;
+        border-radius: 3px;
+        box-shadow: 1px 3px 20px rgba(17, 17, 17, 0.1);
+        width: 100%;
+        height: 35px;
+        outline: var(--green);
+      }
+
+      input[type="date"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        display: none;
+      }
+
+      #guestNo {
+        width: 80px;
+        margin: 0 20px;
+        text-align: center;
+      }
+
+      label {
+        padding-bottom: 5px;
+        display: inline;
+        float: left;
+      }
+
+      .counter-btn {
+        position: relative;
+        display: inline-block;
+        height: 40px;
+        text-align: top;
+        vertical-align: top;
+        font-size: 1.5em;
+        font-weight: 300;
+        width: 40px;
+        background: #fff;
+        border: none;
+        margin-bottom: 10px;
+        border-radius: 50%;
+        box-shadow: 1px 3px 20px rgba(17, 17, 17, 0.1);
+        cursor: pointer;
+        outline: none;
+      }
+
+      .counter-btn:nth-child(2) {
+        float: right;
+      }
+
+      .counter-btn:hover {
+        box-shadow: 1px 3px 20px rgba(17, 17, 17, 0.3);
+      }
+
+      .guests {
+        margin: 10px;
+      }
+
+      .dates .arrival,
+      .dates .departure {
+        display: inline-block;
+        width: 45%;
+      }
+
+      .arrival {
+        display: block;
+      }
+
+      .btn {
+        border: none;
+        padding: 10px;
+        margin: 20px auto;
+        width: 100%;
+        height: 45px;
+        display: block;
+        background: var(--orange);
+        color: #fff;
+        font-size: 1.3em;
+        letter-spacing: 0.1em;
+        box-shadow: 1px 3px 20px rgba(17, 17, 17, 0.1);
+        border-radius: 3px;
+        outline: none;
+      }
+
+      .btn:hover {
+        background: darken(var(--orange), 5%);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 最外層 -->
+    <div class="container">
+      <div class="outermost-layer">
+        <input type="text" placeholder="點我開始預約" />
+        <i class="fa-solid fa-calendar-days"></i>
+      </div>
+      <!-- 中層座位表 -->
+      <div class="middle-layer">
+        <ul class="tables-chairs">
+          <li tableId="1">12人桌</li>
+          <li tableId="2">4人桌</li>
+          <li tableId="3">4人桌</li>
+          <li tableId="4">4人桌</li>
+          <li tableId="5">4人桌</li>
+          <li tableId="6">4人桌</li>
+          <li tableId="7">4人桌</li>
+          <li tableId="8">2人桌</li>
+          <li tableId="9">2人桌</li>
+        </ul>
+      </div>
+      <!-- 內層日歷選單-->
+      <div class="inner-layer">
+        <div class="diamond">
+          <div class="form-wrap">
+            <form action="" id="reservationForm">
+              <div class="chairnumber">
+                <label for="chairnumberId">桌號</label><br />
+                <input
+                  type="text"
+                  id="chairnumberId"
+                  name="chairnumber"
+                  placeholder="1桌"
+                  readonly
+                /><br />
+              </div>
+              <button type="button" class="return-btn" id="returnBtn">
+                返回
+              </button>
+              <div class="guests">
+                <label for="guestNo">訂位人數</label><br /><br />
+                <button type="button" id="cnt-down" class="counter-btn">
+                  -
+                </button>
+                <input type="text" id="guestNo" name="guests" value="2" />
+                <button type="button" id="cnt-up" class="counter-btn">+</button>
+              </div>
+              <div class="arrival">
+                <label for="reservationDateTime">選擇預約日期：</label>
+                <input
+                  type="date"
+                  id="reservationDateTime"
+                  name="reservationDateTime"
+                  required
+                />
+                <select
+                  id="timeSelect"
+                  class="form-select form-select-lg mb-3 mt-3"
+                  aria-label="Large select example"
+                  required
+                >
+                  <option selected disabled>請選擇時間</option>
+                  <option value="11:30">11:30</option>
+                  <option value="12:00">12:00</option>
+                  <option value="12:30">12:30</option>
+                  <option value="13:00">13:00</option>
+                  <option value="17:30">17:30</option>
+                  <option value="18:00">18:00</option>
+                  <option value="18:30">18:30</option>
+                  <option value="19:00">19:00</option>
+                  <option value="19:30">19:30</option>
+                  <option value="20:00">20:00</option>
+                </select>
+              </div>
+              <div>
+                <!-- required 使用戶必選欄位 -->
+                <select
+                  id="menuSelect"
+                  class="form-select mt-2"
+                  aria-label="Default select example required"
+                >
+                  <!-- disabled 使用戶無法選擇此選項 -->
+                  <!-- 新增邏輯判斷 若用戶沒選擇用餐方式則跳出alert提醒用戶 -->
+                  <option selected disabled>請選擇用餐方式(必選)</option>
+                  <option value="1" required>現場單點</option>
+                  <option value="2" required>合菜料理</option>
+                  <option value="3" required>無菜單料理</option>
+                </select>
+              </div>
+            </form>
+            <!-- 將按鈕更改為submit屬性 觸發表單的提交動作 再將判斷動作綁在submit上-->
+            <button
+              id="reserveBtn"
+              type="submit"
+              class="btn"
+              onclick="checkReservation()"
+            >
+              立刻預定!
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  jQuery CDN -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      // 點擊外層表單顯示中層座位表
+      $(".outermost-layer").click(function () {
+        $(this).hide();
+        $(".middle-layer").show();
+        console.log("成功隱藏外層並顯示中層");
+      });
+
+      // 點擊中層座位顯示內層日歷預約系統
+      $(".middle-layer").click(function () {
+        $(".inner-layer").show();
+        console.log("成功隱藏中層並顯示內層");
+      });
+
+      // 預約人數按鈕的增減功能 點擊增加、減少數字
+      $(document).ready(function () {
+        $("#cnt-up").click(() => {
+          updateGuestAmount(1);
+          console.log("預約人數成功+1");
+        });
+
+        // 減少人數按鈕事件處理程序
+        $("#cnt-down").click(() => {
+          updateGuestAmount(-1);
+          console.log("預約人數成功-1");
+        });
+
+        // 更新人數的函數
+        function updateGuestAmount(amount) {
+          const guestAmountInput = $("#guestNo");
+          let currentValue = parseInt(guestAmountInput.val());
+          let newValue = Math.min(Math.max(currentValue + amount, 1), 12); // 限制在1到12之間
+          guestAmountInput.val(newValue);
+        }
+      });
+
+      var tableNumber = "";
+      $(document).ready(function () {
+        tableNumber = $(".tables-chairs li").text();
+
+        $(".tables-chairs li").click(function () {
+          tableNumber = $(this).text();
+          $clickedTableItem = $(this);
+          //將桌號字串值傳送給表單#chairnumberId欄位
+          $("#chairnumberId").val(tableNumber);
+          console.log("被點擊桌號成功傳送到欄位了");
+          console.log("被點擊的是：", tableNumber);
+        });
+      });
+      // 獲取當前時間的 ISO 字符串，格式為 YYYY-MM-DD
+      function getCurrentDateISO() {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = (now.getMonth() + 1).toString().padStart(2, "0"); // 月份從0開始需要加1
+        const day = now.getDate().toString().padStart(2, "0");
+        return `${year}-${month}-${day}`;
+      }
+
+      //設定日歷中星期一公休日
+      document.addEventListener("DOMContentLoaded", function () {
+        const dateTimeInput = document.getElementById("reservationDateTime");
+
+        if (dateTimeInput) {
+          dateTimeInput.addEventListener("input", function () {
+            const selectedDate = new Date(dateTimeInput.value);
+            if (selectedDate.getDay() === 1) {
+              // 1 表示星期一
+              alert(
+                "很抱歉,星期一為公休日，都不對外開放預約。請選擇其他日期。"
+              );
+              dateTimeInput.value = ""; // 清空 reservationDateTime 欄位的值
+            }
+          });
+        } else {
+          console.error("找不到 id 為 'reservationDateTime' 的元素");
+        }
+      });
+      document.addEventListener("DOMContentLoaded", function () {
+        const inputElement = document.getElementById("reservationDateTime");
+
+        if (inputElement) {
+          inputElement.min = getCurrentDateISO();
+        }
+      });
+
+      const dateTimeInput = document.getElementById("reservationDateTime");
+      const timeSelect = document.getElementById("timeSelect");
+      const menuSelect = document.getElementById("menuSelect");
+
+      function checkReservation() {
+        if (!dateTimeInput.value) {
+          alert("請選擇預約日期");
+          return false;
+        }
+
+        if (!timeSelect.value || timeSelect.value === "請選擇時間") {
+          alert("請選擇預約時間");
+          return false;
+        }
+
+        if (!menuSelect.value || menuSelect.value === "請選擇用餐方式(必選)") {
+          alert("請選擇用餐方式");
+          return false;
+        }
+        // 如果所有必填欄位都已填寫，返回 true 表示通過檢查
+        console.log("true");
+        return true;
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const reserveBtn = document.getElementById("reserveBtn");
+        const reservationForm = document.getElementById("reservationForm");
+
+        if (reserveBtn && reservationForm) {
+          reservationForm.addEventListener("submit", function (event) {
+            if (!checkReservation()) {
+              event.preventDefault();
+            } else {
+              handleReservationSuccess();
+            }
+          });
+
+          reserveBtn.addEventListener("click", function () {
+            if (checkReservation()) {
+              alert("預約成功！");
+
+              $(".btn").toggleClass("立刻預定!");
+
+              $(".form-wrap form").slideToggle(300);
+
+              $(".btn").text("訂位成功");
+
+              // 修改被點擊的 li 元素
+              if ($clickedTableItem) {
+                $clickedTableItem.css("background-color", "gray");
+                $clickedTableItem.css("pointer-events", "none");
+                $clickedTableItem.text("已被預約");
+              }
+
+              // 設置一段時間後恢復點擊功能
+              setTimeout(function () {
+                $clickedTableItem.css("background-color", "");
+                $clickedTableItem.text(
+                  $clickedTableItem.attr("tableId") + "桌"
+                );
+                $clickedTableItem.css("pointer-events", "auto");
+              }, 2 * 60 * 60 * 1000);
+            }
+          });
+        } else {
+          console.error("無法找到 reserveBtn 或 reservationForm 元素");
+        }
+      });
+      $(document).ready(function () {
+        $("#reserveBtn").click(function () {
+          if ($("#reserveBtn").text() === "訂位成功") {
+            $(".middle-layer").show();
+            $(".inner-layer").show();
+            $(this).css("pointer-events", "none");
+          }
+        });
+      });
+
+      $(document).ready(function () {
+        $("#returnBtn").click(function () {
+          if ($("#returnBtn").text() === "返回") {
+            $(".middle-layer").hide();
+            $(".inner-layer").hide();
+            $(".outermost-layer").show();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

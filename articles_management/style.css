@@ -1,0 +1,122 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  height: 100vh;
+  /* height: 100vh; 設置 body 高度為視窗高度的 100% */
+}
+
+.sidebar {
+  width: 150px;
+  background-color: #333;
+  padding-left: 10px;
+  color: #fff;
+  height: 100vh; 
+  /* 讓側欄高度佔滿 body 的高度 */
+  overflow-y: auto;
+  /* 若內容超出側欄高度，提供滾動條 */
+}
+
+.sidebar h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+}
+
+.content {
+  flex: 1;
+  background-color: dimgray;
+  padding-left: 10px;
+}
+
+.content h3 {
+  margin-bottom: 0;
+  color: #fff;
+}
+
+.content h5 {
+  color: #fff;
+}
+
+.sidebar li i {
+  margin-right: 10px;
+  /* 調整圖標與文字之間的間距 */
+}
+
+.content .articles-table{
+  background-color: #fff;
+  width: 80%;
+  height: 500px;
+  padding: 10px;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+}
+
+.table-data {
+  border: 1px solid black;
+  /* 设置表格、表头和单元格的边框样式 */
+  border-collapse: collapse;
+  height: 35px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.content .articles-form{
+  background-color: #fff;
+  width: 80%;
+  padding: 10px;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.table-data tr:hover {
+  background-color: rgb(129, 117, 117);
+}
+
+.table-data th,
+.table-data td {
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.card {
+  width: 200px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.list-menu {
+  max-height: 20px;
+  overflow-y: auto;
+}
+
+.dropdown-menu.slide-date {
+  max-height: 120px; /* 設定最大高度 */
+  overflow-y: auto; /* 垂直滾動 */
+}
+
+.dropdown-item {
+  /* 在需要時調整選項的樣式 */
+  /* 這裡是一個範例，你可以根據需要調整 */
+  line-height: 30px; /* 選項的行高 */
+}

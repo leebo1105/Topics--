@@ -1,0 +1,80 @@
+<?php include __DIR__ . '/parts/head.php' ?>
+<?php include __DIR__ . '/parts/navbar.php' ?>
+<?php include __DIR__ . '/table.php' ?>
+
+<div class="member-table">
+      <div class="container">
+        <div class="row">
+          <div class="col-9">
+            <div class="card-body">
+              <form name="form1" onsubmit="sendData(event)">
+                <div class="mb-3">
+                  <label for="date" class="form-label">日期:</label>
+                  <input type="date" class="form-control" id="date" name="date" value="<?= $row['date'] ?>">
+                  <div class="form-text"></div>
+                </div>
+                <div class="mb-3">
+                  <label for="title" class="form-label">標題:</label>
+                  <input type="text" class="form-control" id="title" name="title" value="<?= $row['title'] ?>">
+                </div>
+                <div class="mb-3">
+                  <label for="content" class="form-label">內文:</label>
+                  <textarea class="form-control" id="content" name="content" rows="3" ><?= $row['content'] ?>"</textarea>
+                </div>
+                <div>
+                  <select class="form-select" aria-label="Default select example" name="key_word_id" id="key_word_id " value="<?= $row['key_word_id'] ?>">
+                    <option selected>關鍵字</option>
+                    <option value="2">新菜消息</option>
+                    <option value="3">節慶活動</option>
+                    <option value="4">公休時間</option>
+                    <option value="5">貓咪認養</option>
+                  </select>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <div class="mb-3 py-2">
+                    <button class="btn btn-secondary" type="button" onclick="photos1.click()">上傳圖片</button>
+                    <input type="hidden" name="photos">
+                    <!-- 資料驗證 value="<?= empty($row['photos']) ? '[]' :
+                                        htmlentities(json_encode($row['photos'])) ?>"> -->
+                    <div class="row">
+                      <div class="d-flex" id="img_container">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="py-2">
+                    <button class="btn btn-secondary" type="submit">新增</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+<?php include __DIR__ . '/parts/scripts.php' ?>
+<script>
+    const fd = new FormData(document.form1); // 建立一個只有資料的表單物件
+    
+    fetch('edit-api.php', {
+        method: 'POST',
+        body: fd, // 預設的 Content-Type: multipart/form-data
+      })
+      .then(r => r.json())
+      .then(data => {
+        console.log(data);
+        if (data.success) {
+          myModal.show();
+        } else {
+          myModal2.show();
+        }
+      }).catch(ex => {
+        console.log(`fetch() 發生錯誤, 回傳的 JSON 格式是錯的`);
+        console.log(ex);
+      })
+
+</script>
+<?php include __DIR__ . '/parts/footer.php' ?>
+

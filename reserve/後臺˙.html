@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>餐廳後台管理系統</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+      body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  height: 100vh; /* 設置 body 高度為視窗高度的 100% */
+}
+
+.sidebar {
+  width: 150px;
+  background-color: #333;
+  padding-left: 10px;
+  color: #fff;
+  height: 100%; /* 讓側欄高度佔滿 body 的高度 */
+  overflow-y: auto; /* 若內容超出側欄高度，提供滾動條 */
+}
+
+.sidebar h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+
+.sidebar a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+}
+
+.content {
+  flex: 1;
+  padding-left: 10px;
+  height: 100%;
+}
+
+.sidebar li i {
+  margin-right: 10px; /* 調整圖標與文字之間的間距 */
+}
+    </style>
+  </head>
+  <body>
+    <!-- 側欄 -->
+    <div class="sidebar">
+      <h2>牡丹樓管理系統</h2>
+      <ul>
+        <li><a href="#"><i class="bi bi-people-fill"></i>會員管理</a></li>
+        <li><a href="#"><i class="bi bi-calendar-check"></i>預約管理</a></li>
+        <li><a href="#"><i class="bi bi-file-earmark"></i>文章管理</a></li>
+        <li><a href="#"><i class="bi bi-egg-fried"></i>菜單管理</a></li>
+      </ul>
+    </div>
+
+    <!-- 主要內容區域 -->
+    <div class="content">
+      <h2>歡迎來到餐廳後台管理系統</h2>
+      <p>選擇左側功能以開始管理您的餐廳資料。</p>
+    </div>
+  </body>
+</html>

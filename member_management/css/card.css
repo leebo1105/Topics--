@@ -1,0 +1,205 @@
+body {
+    margin: 0;
+    font-family: "Raleway", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    /* background-color: #BCAAA4; */
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    /* min-height: 100vh; */
+  }
+
+  .container {
+    flex: 1;
+  }
+
+  .title {
+    font-family: "Raleway", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #5D4037;
+    text-align: center;
+  }
+
+  .cart {
+    position:fixed;
+    top:20px;
+    right:20px;
+    width:50px;
+    height:50px;
+    background:#292d48;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:5px;
+    i {
+      font-size:25px;
+      color:white;
+    }
+    &:before {
+        content:attr(data-totalitems);
+        font-size:12px;
+        font-weight:600;
+        position:absolute;
+        top:-12px;
+        right:-12px;
+        background:#2bd156;
+        line-height:24px;
+        padding:0 5px;
+        height:24px;
+        min-width:24px;
+        color:white;
+        text-align:center;
+        border-radius:24px;
+      }
+      &.shake {
+        animation: shakeCart .4s ease-in-out forwards;
+      }
+  }
+
+  .img1, .img2, .img3, .img4 {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%; /* 使圖片為正方形 */
+  }
+
+  .card {
+    position: relative;
+    width: 100%;
+    background-color: #333;
+    overflow: hidden;
+    border-radius: 10px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .card-info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .card-info h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: white; /* 设置字体颜色为白色，以在图片上清晰显现 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 添加阴影效果 */
+    background-color: rgba(0, 0, 0, 0.5); /* 添加黑色半透明背景 */
+    padding: 5px 15px; /* 可选：增加一些内边距以使标题与背景之间有一些间距 */
+
+  }
+  
+  
+  
+
+
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow:
+        rgba(255, 255, 255, 0.2) 0 0 40px 5px,
+        rgba(255, 255, 255, 1) 0 0 0 1px,
+        rgba(0, 0, 0, 0.66) 0 30px 60px 0,
+        inset #333 0 0 0 5px,
+        inset rgba(255, 255, 255, 0.5) 0 0 0 6px;
+  }
+
+  .card:hover .card-info {
+    opacity: 1;
+  }
+
+  .img1:hover, .img2:hover, .img3:hover, .img4:hover {
+    opacity: 0.8;
+  }
+
+  .card-info h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 24px;
+    font-weight: 700;
+    text-shadow: rgba(0, 0, 0, 0.5) 0 10px 10px;
+  }
+
+  .card-info p {
+    font-size: 18px;
+    line-height: 1.5em;
+  }
+
+  footer {
+    margin-top: auto;
+    background-color: #333;
+    color: white;
+    /* text-align: center; */
+    padding: 10px 0;
+  }
+
+.img1 {
+    background-image:url(../image/菜1.jpg);
+    background-size: cover; /* 背景圖片填滿卡片 */
+    background-position: center; /* 將背景圖片置中 */
+}
+.img2 {
+    background-image:url(../image/菜2.jpg);
+    background-size: cover; /* 背景圖片填滿卡片 */
+    background-position: center; /* 將背景圖片置中 */
+}
+.img3 {
+    background-image:url(../image/菜3.jpg);
+    background-size: cover; /* 背景圖片填滿卡片 */
+    background-position: center; /* 將背景圖片置中 */
+}
+.img4 {
+    background-image:url(../image/菜4.jpg);
+    background-size: cover; /* 背景圖片填滿卡片 */
+    background-position: center; /* 將背景圖片置中 */
+}
+
+
+/* 產品導覽 */
+/* 确保产品列表不受导航栏影响，增加上方内边距 */
+.product-list {
+  margin-top: 8%;
+}
+
+/* 设置产品列表为水平排列 */
+.product-list ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.product-list li {
+  margin: 0 10px;
+  position: relative;
+}
+
+/* 添加斜线分隔符 */
+.product-list li:not(:last-child)::after {
+  content: "/";
+  position: absolute;
+  right: -10px;
+  top: 0;
+  color: #000; /* 分隔符颜色 */
+  font-size: 18px; /* 根据需要调整字体大小 */
+  line-height: 1;
+}
+
+.product-list a {
+  text-decoration: none;
+  color: #000; /* 链接颜色 */
+  font-size: 16px; /* 根据需要调整字体大小 */
+}
+
+/* 调整链接悬停效果 */
+.product-list a:hover {
+  color: #007BFF; /* 悬停时链接颜色 */
+}
+
+
+
